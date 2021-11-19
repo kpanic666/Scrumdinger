@@ -32,3 +32,23 @@ extension DailyScrum {
         ]
     }
 }
+
+extension DailyScrum {
+    struct Data {
+        var title: String = ""
+        var attendees: [String] = []
+        var lengthInMinutes: Double = 5.0
+        var color: Color = .random
+    }
+    
+    var data: Data {
+        Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), color: color)
+    }
+    
+    mutating func update(from data: Data) {
+        title = data.title
+        attendees = data.attendees
+        lengthInMinutes = Int(data.lengthInMinutes)
+        color = data.color
+    }
+}
